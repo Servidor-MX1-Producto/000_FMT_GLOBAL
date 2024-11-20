@@ -42,7 +42,12 @@ for (i in 1:nrow(tTransferFile)) {
   }
   
   #Eliminar archvio
-  file.remove(file.path(paste(rDestino, "/", cNombreFile, sep = "")))
+  if (file.exists(file.path(paste(rDestino, "/", cNombreFile, sep = "")))) {
+    
+    file.remove(file.path(paste(rDestino, "/", cNombreFile, sep = "")))
+    
+  }
+ 
   
   # #Mover archivo
   x <- file.copy(file.path(paste(rOrigen, "/", cNombreFile, sep = "")), #Path Origen
