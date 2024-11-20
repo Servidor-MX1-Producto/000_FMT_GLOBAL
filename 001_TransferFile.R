@@ -53,6 +53,8 @@ for (i in 1:nrow(tTransferFile)) {
   }else {
     
     print("NO GOOD")
+    print(paste(rOrigen, "/", cNombreFile, sep = ""))
+    print(paste(rDestino, "/", cNombreFile, sep = ""))
    
     } 
 }
