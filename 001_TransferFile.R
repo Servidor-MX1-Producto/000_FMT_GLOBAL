@@ -41,20 +41,21 @@ for (i in 1:nrow(tTransferFile)) {
     rDestino <- file.path(paste(rUser, "/", rSharePoint, "/", cDestino, sep = ""))
   }
   
-  # #Mover archivo
-  # q001Validacion <- file.copy(file.path(paste(rOrigen, "/", cNombreFile, sep = "")), #Path Origen
-  #           file.path(paste(rDestino, "/", cNombreFile, sep = ""))) #Path 
+  #Eliminar archvio
+  file.remove(file.path(paste(rDestino, "/", cNombreFile, sep = "")))
   
-  if(file.copy(file.path(paste(rOrigen, "/", cNombreFile, sep = "")), #Path Origen
-               file.path(paste(rDestino, "/", cNombreFile, sep = "")))) {
+  # #Mover archivo
+  x <- file.copy(file.path(paste(rOrigen, "/", cNombreFile, sep = "")), #Path Origen
+            file.path(paste(rDestino, "/", cNombreFile, sep = "")))
+  
+  if(x) {
     
     print("GOOD")
     
   }else {
     
     print("NO GOOD")
-    print(paste(rOrigen, "/", cNombreFile, sep = ""))
-    print(paste(rDestino, "/", cNombreFile, sep = ""))
+
    
     } 
 }
