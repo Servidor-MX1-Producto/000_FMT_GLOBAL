@@ -50,7 +50,7 @@ for (i in 1:nrow(tTransferFile)) {
  
   #Mover archivo
   file.copy(file.path(paste(rOrigen, sep = "")), #Path Origen
-            file.path(paste(rDestino, "/", cNombreFile, sep = ""))) #Path Destino
+            file.path(paste(rDestino, sep = ""))) #Path Destino
   
 }
 
