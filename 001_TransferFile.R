@@ -12,7 +12,7 @@ tTransferFile <- read_excel(file.path(rTablas, "TransferFile.xlsx"))
 #================ Ejecucion ===================
 
 #Bucle para recorrer cada archivo a mover
-i <- 1
+#i <- 1
 for (i in 1:nrow(tTransferFile)) {
   
   cOrigen <- tTransferFile$RUTA_ORIGEN[i]
@@ -20,14 +20,14 @@ for (i in 1:nrow(tTransferFile)) {
   cNombreFile <- tTransferFile$ARCHIVO[i]
   
   #Define Path Origen
-  #En caso que la ruta origen sea la unidad de dico de Qlick (B:) NO agregamos los pats iniciarles de Usuario y Sharepoint
+  #En caso que la ruta origen sea la unidad de dico de Qlick (B:) NO agregamos los paths iniciales de Usuario y Sharepoint
   if (grepl("(?i)B:", cOrigen, perl = TRUE)) {
     
-    rOrigen <- file.path(paste(cOrigen, sep = ""))
+    rOrigen <- file.path(paste(cOrigen, "/", cNombreFile, sep = ""))
     
   }else {
     
-    rOrigen <- file.path(paste(rUser, "/", rSharePoint, "/", cOrigen, sep = ""))
+    rOrigen <- file.path(paste(rUser, "/", rSharePoint, "/", cOrigen, "/", cNombreFile, sep = ""))
     
   }
   
@@ -35,33 +35,29 @@ for (i in 1:nrow(tTransferFile)) {
   #En caso que la ruta destino sea la unidad de dico de Qlick (B:) NO agregamos los pats iniciarles de Usuario y Sharepoint
   if (grepl("(?i)B:", cDestino, perl = TRUE)) {
     
-    rDestino <- file.path(paste(cDestino, sep = ""))
+    rDestino <- file.path(paste(cDestino, "/", cNombreFile, sep = ""))
     
   }else {
-    rDestino <- file.path(paste(rUser, "/", rSharePoint, "/", cDestino, sep = ""))
+    rDestino <- file.path(paste(rUser, "/", rSharePoint, "/", cDestino, "/", cNombreFile,  sep = ""))
   }
   
   #Eliminar archvio
-  if (file.exists(file.path(paste(rDestino, "/", cNombreFile, sep = "")))) {
+  if (file.exists(file.path(paste(rDestino,  sep = "")))) {
     
-    file.remove(file.path(paste(rDestino, "/", cNombreFile, sep = "")))
+    file.remove(file.path(paste(rDestino, sep = "")))
     
   }
  
+  #Mover archivo
+  file.copy(file.path(paste(rOrigen, sep = "")), #Path Origen
+            file.path(paste(rDestino, "/", cNombreFile, sep = ""))) #Path Destino
   
-  # #Mover archivo
-  x <- file.copy(file.path(paste(rOrigen, "/", cNombreFile, sep = "")), #Path Origen
-            file.path(paste(rDestino, "/", cNombreFile, sep = "")))
-  
-  if(x) {
-    
-    print("GOOD")
-    
-  }else {
-    
-    print("NO GOOD")
-
-   
-    } 
 }
 
+#Lista de data frames a conservar
+vGuarda <- c() #Agregar datos que se guardan en el environment
+vMantener <- c(vMantener, vGuarda)
+vBorrar <- setdiff(ls(), vMantener)
+
+rm(list = vBorrar)
+rm(vBorrar)  
