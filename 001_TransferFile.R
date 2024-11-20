@@ -9,7 +9,6 @@
 #Catalogo que nos indica que archivo y la direccion a mover
 tTransferFile <- read_excel(file.path(rTablas, "TransferFile.xlsx"))
 
-
 #================ Ejecucion ===================
 
 #Bucle para recorrer cada archivo a mover
@@ -18,7 +17,7 @@ for (i in tTransferFile$ARCHIVO) {
   
   cOrigen <- tTransferFile$RUTA_ORIGEN[i]
   cDestino <- tTransferFile$RUTA_DESTINO[i]
-  cNombreFIle <- tTransferFile$ARCHIVO[i]
+  cNombreFile <- tTransferFile$ARCHIVO[i]
   
   #Define Path Origen
   #En caso que la ruta origen sea la unidad de dico de Qlick (B:) NO agregamos los pats iniciarles de Usuario y Sharepoint
@@ -43,8 +42,10 @@ for (i in tTransferFile$ARCHIVO) {
   }
   
   #Mover archivo
-  file.copy(file.path(paste(rOrigen, "/", cNombreFIle, sep = "")), #Path Origen
-            file.path(paste(rDestino, "/", cNombreFIle, sep = ""))) #Path Destino
-  
+  if(file.copy(file.path(paste(rOrigen, "/", cNombreFile, sep = "")), #Path Origen
+            file.path(paste(rDestino, "/", cNombreFile, sep = ""))) #Path Destino
+  ) {
+    print("GOOD")
+  }else {print("NO GOOD")} 
 }
 
