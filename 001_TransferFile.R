@@ -42,21 +42,17 @@ for (i in 1:nrow(tTransferFile)) {
   }
   
   #Mover archivo
-  rOrigenCompleto <- file.path(paste(rOrigen, "/", cNombreFile, sep = ""))
-  rDestinoCompleto <- file.path(paste(rDestino, "/", cNombreFile, sep = ""))
+  q001Validacion <- file.copy(file.path(paste(rOrigen, "/", cNombreFile, sep = "")), #Path Origen
+            file.path(paste(rDestino, "/", cNombreFile, sep = ""))) #Path 
   
-  file.copy(rOrigenCompleto, #Path Origen
-            rDestinoCompleto)
-  
-  if(file.copy(rOrigenCompleto, #Path Origen
-            rDestinoCompleto) #Path Destino
-  ) {
+  if(q001Validacion) {
+    
     print("GOOD")
+    
   }else {
     
     print("NO GOOD")
-    print(rOrigenCompleto)
-    print(rDestinoCompleto)
+   
     } 
 }
 
