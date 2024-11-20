@@ -13,7 +13,7 @@ tTransferFile <- read_excel(file.path(rTablas, "TransferFile.xlsx"))
 
 #Bucle para recorrer cada archivo a mover
 i <- 1
-for (i in nrow(tTransferFile)) {
+for (i in 1:nrow(tTransferFile)) {
   
   cOrigen <- tTransferFile$RUTA_ORIGEN[i]
   cDestino <- tTransferFile$RUTA_DESTINO[i]
