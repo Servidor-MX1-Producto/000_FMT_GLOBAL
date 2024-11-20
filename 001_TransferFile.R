@@ -22,7 +22,6 @@ for (i in tTransferFile$ARCHIVO) {
   
   #Define Path Origen
   #En caso que la ruta origen sea la unidad de dico de Qlick (B:) NO agregamos los pats iniciarles de Usuario y Sharepoint
-  #if (str_detect(cOrigen, "(?i)B:")) {
   if (grepl("(?i)B:", cOrigen, perl = TRUE)) {
     
     rOrigen <- file.path(paste(cOrigen, sep = ""))
@@ -35,7 +34,7 @@ for (i in tTransferFile$ARCHIVO) {
   
   #Define Path destino
   #En caso que la ruta destino sea la unidad de dico de Qlick (B:) NO agregamos los pats iniciarles de Usuario y Sharepoint
-  if (str_detect(cDestino, "(?i)B:")) {
+  if (grepl("(?i)B:", cDestino, perl = TRUE)) {
     
     rDestino <- file.path(paste(cDestino, sep = ""))
     
