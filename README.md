@@ -109,6 +109,7 @@ Este script es una herramienta diseñada para facilitar el movimiento de archivo
 
 #### **Diagrama de Flujo**
 ```mermaid
+flowchart TD
 A([INICIO])
 B[LEE CATÁLOGO "Transfer_File.xlsx"]
 c[DEFINE PATHS ORIGEN Y DESTINO]
