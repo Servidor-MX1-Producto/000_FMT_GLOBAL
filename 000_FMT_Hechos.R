@@ -88,9 +88,9 @@
 
 #================ Ejecucion ===================
 #TransferFile
-source("001_Transfer_File.R")
+source("010_FMT_Transfer_File.R")
 
 #Borra Samba
-source("002_Borra_Samba.R")
+source("020_FMT_Borra_Samba.R")
 
 rm(list = ls())
