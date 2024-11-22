@@ -22,7 +22,7 @@ q001Archivos <- list.files(rSamba) %>%
   data.frame() %>% 
   rename(ARCHIVO = 1) %>% 
   filter(!(ARCHIVO %in% cArchivosExcluye)) %>%  #Quitamos archivos que no se deben tocar
-  mutate(FECHA_CREACION = as.Date(file.mtime(file.path(rSamba, ARCHIVO)))) %>% #Fecha de creacion de los archivos
+  mutate(FECHA_CREACION = as.Date(file.mtime(file.path(rSamba, ARCHIVO)), tz = "America/Mexico_City")) %>% #Fecha de creacion de los archivos
   mutate(ELIMINA = ifelse(FECHA_CREACION < as.Date(today() - days(cDiasElimina)), "SI", "NO")) %>% #Validamos la fecha para defini que si se elimina y que no
   filter(ELIMINA == "SI") #Filtramos los archivos que se eliminan
 
