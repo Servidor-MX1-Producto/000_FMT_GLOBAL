@@ -111,7 +111,7 @@ Este script es una herramienta diseñada para facilitar el movimiento de archivo
 ```mermaid
 flowchart TD
 A([INICIO])
-B[LEE CATÁLOGO "Transfer_File.xlsx"]
+B[LEE CATÁLOGO Transfer_File.xlsx]
 c[DEFINE PATHS ORIGEN Y DESTINO]
 D{EXISTE ARCHIVO EN RUTA DESTINO?}
 DY[ELIMINA ARCHIVOS EN RUTA DESTINO]
