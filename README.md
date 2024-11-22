@@ -127,3 +127,34 @@ D --> |NO| E
 DY --> E
 E --> F
 ```
+
+#### **Reglas**
+-
+
+### **020_FMT_Borra_Samba.R**
+#### **Descripción**
+Este script está diseñado para realizar tareas de mantenimiento en la carpeta Samba, permitiendo la eliminación progresiva de controles generados en días anteriores.
+
+#### **Diagrama de Flujo**
+```mermaid
+flowchart TD
+A([INICIO])
+B[DEFINE CONSTANTES Y/O PATHS EXTRAS]
+C[LEE ARCHIVOS EN CARPETA Samba]
+D[OBTENEMOS FECHA DE CREACION DE CADA ARCHIVO]
+E{ELIMINAR?}
+EY[ELIMINA ARCHIVOS]
+F([FIN])
+
+
+A --> B
+B --> C
+C --> D
+D --> E
+E --> |SI| EY
+E --> |NO| F
+EY --> F
+```
+
+#### **Reglas**
+-
