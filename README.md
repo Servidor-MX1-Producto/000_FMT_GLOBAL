@@ -158,3 +158,7 @@ EY --> F
 
 #### **Reglas**
 -
+
+
+## **REPORTES PBI:**
+No hay reportes de Power Bi que consuman reportes de este proyecto
