@@ -97,7 +97,7 @@ graph TD
     D --> E[DEFINE CONSTANTES]
     E --> F[EJECUTA 010_FMT_Transfer_File.R]
     F --> G[EJECUTA_020_FMT_Borra_Samba.R]
-    H --> I[EJECUTA_040_SA_Consolida_Anual.R]
+    G --> H[EJECUTA_040_SA_Consolida_Anual.R]
 ```
 
 #### **Reglas**
@@ -109,10 +109,20 @@ Este script es una herramienta diseñada para facilitar el movimiento de archivo
 
 #### **Diagrama de Flujo**
 ```mermaid
-A([INICIO]) --> B[LEE CATÁLOGO Trasnfer_File.xlsx]
-B --> c[DEFINE PATHS ORIGEN Y DESTINO]
-C --> D{EXISTE ARCHIVO EN RUTA DESTINO}
-D --> |SÍ| E[ELIMINA ARCHIVO EXISTENTE]
-D --> |NO| F[MUEVE ARCHIVO]
-E --> G([FIN])
+A([INICIO])
+B[LEE CATÁLOGO "Transfer_File.xlsx"]
+c[DEFINE PATHS ORIGEN Y DESTINO]
+D{EXISTE ARCHIVO EN RUTA DESTINO?}
+DY[ELIMINA ARCHIVOS EN RUTA DESTINO]
+E[MUEVE ARCHIVO A RUTA DESTINO]
+F([FIN])
+
+
+A --> B
+B --> c
+C --> D
+D --> |SÍ| DY
+D --> |NO| E
+DY --> E
+E --> F
 ```
