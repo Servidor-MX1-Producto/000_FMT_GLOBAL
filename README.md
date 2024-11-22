@@ -120,7 +120,7 @@ F([FIN])
 
 
 A --> B
-B --> c
+B --> C
 C --> D
 D --> |SÍ| DY
 D --> |NO| E
