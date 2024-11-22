@@ -112,7 +112,7 @@ Este script es una herramienta diseñada para facilitar el movimiento de archivo
 flowchart TD
 A([INICIO])
 B[LEE CATÁLOGO Transfer_File.xlsx]
-c[DEFINE PATHS ORIGEN Y DESTINO]
+C[DEFINE PATHS ORIGEN Y DESTINO]
 D{EXISTE ARCHIVO EN RUTA DESTINO?}
 DY[ELIMINA ARCHIVOS EN RUTA DESTINO]
 E[MUEVE ARCHIVO A RUTA DESTINO]
