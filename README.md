@@ -97,7 +97,7 @@ graph TD
     D --> E[DEFINE CONSTANTES]
     E --> F[EJECUTA 010_FMT_Transfer_File.R]
     F --> G[EJECUTA_020_FMT_Borra_Samba.R]
-    G --> H[EJECUTA_040_SA_Consolida_Anual.R]
+    G --> H([FIN])
 ```
 
 #### **Reglas**
@@ -162,3 +162,25 @@ EY --> F
 
 ## **REPORTES PBI:**
 No hay reportes de Power Bi que consuman reportes de este proyecto
+
+## **HORAS DE EJECUCIÓN:**
+
+#### **Horario**
+
+| Día | Hora | 
+| :----: | :-----: |
+| Lunes | 6:20 am |  
+| Martes | 6:20 am |  
+| Miércoles | 6:20 am |  
+| Jueves | 6:20 am |  
+| Viernes | 6:20 am | 
+| Sábado | 6:20 am |  
+| Domingo | 6:20 am | 
+
+#### **Archivo de Ejecución**
+DIST_FMT_GLOBAL.bat
+
+
+
+
+
