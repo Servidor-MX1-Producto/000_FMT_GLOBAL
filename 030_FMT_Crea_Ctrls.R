@@ -1,8 +1,8 @@
 #================ About ================
 # Pasos de ejecución:
-#   1.- Extraer información de Qlik
-#   2.- Calcular Faltantes
-#   3.- Calcular Distribucion
+#   1.- Extraer información de archivo
+#   2.- Filtrar controles
+#   3.- Escribir controles filtrados
 
 #================ Librerias  ==============
 {
@@ -70,7 +70,7 @@
   
   #============== Ejecucion ==============
   #Ciclo que recorre tantos controles se necesiten generar
-  cDelta01 <- 1
+  #cDelta01 <- 1
   for (cDelta01 in unique(tCreaCtrl$CONTROL)) {
     
     #Filtro de control
