@@ -40,7 +40,6 @@
     
   }
   
-  
   #============== Paths ==============
   #Path de usuario
   rUser <- fGetUserPath()
@@ -58,42 +57,32 @@
   #Path de Reportes
   rReportes <- file.path(rUser, rSharePoint, "FBEM", "000_FMT_GLOBAL", "02_Reportes")
   
-  #================ Constantes ================ 
-  
-  #Año 
-  cAnio <- substring((Sys.time()-3), 1, 4)
-  
-  #Mes
-  cMes <- substring((Sys.time()-3), 6, 7)
-  
-  #Día
-  cDia <- substring((Sys.time()-3), 9, 10)
-  
-  #Primer día del mes, segun la fecha actual
-  cPrimerDiaMes <- seq(as.Date(ceiling_date(Sys.Date(), "month")), length = 2, by = "-1 months")[2] 
-  
-  #Fecha (n) meses de venta
-  cMeses <- 2
-  cFechaMeses <- floor_date((today() - 1) %m+% months(- cMeses), "month")
-  
-  #Fecha (n) semanas atras
-  cSemanas <- 8
-  cFechaSemanas <- (today() -1) %m+% weeks(-cSemanas)
-  
   #Elementos a mantener en el environment
   vMantener <- c("vMantener")
   vMantener <- c(vMantener, ls())
   
 }
 
-#================ Ejecucion ===================
-#TransferFile
-source("010_FMT_Transfer_File.R")
+{
+  #============== Importaciones ==============
+  #Archivo Base
+  tCreaCtrl <- read.csv(file.path(rTablas, "Crea_Controles.csv"), header = TRUE, sep = ",")
+  
+  #============== Ejecucion ==============
+  #Ciclo que recorre tantos controles se necesiten generar
+  cDelta01 <- 1
+  for (cDelta01 in unique(tCreaCtrl$CONTROL)) {
+    
+    #Filtro de control
+    q000Ctrl <- tCreaCtrl %>% 
+      filter(CONTROL == cDelta01) %>% 
+      select(ID_ALMACEN, SKU, CANTIDAD, ALM_CENTRAL)
+    
+    #Escribe Control
+    write.table(q000Ctrl, file.path(rReportes, "Crea_Controles", paste("CTRL_", cDelta01, "_", today(), ".csv", sep = "")), col.names = FALSE, row.names = FALSE, sep = ",")
+  }
+  
+}
 
-#Borra Samba
-source("020_FMT_Borra_Samba.R")
-
-#Crea Controles
-#source("030_FMT_Crea_Ctrls.R")
 
 rm(list = ls())
