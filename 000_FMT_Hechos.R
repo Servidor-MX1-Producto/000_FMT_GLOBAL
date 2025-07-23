@@ -50,13 +50,13 @@
   #0 <- Despliegue
   Modo <- 0
   
-  rSharePoint <- ifelse(Modo == 1, file.path("Documents", "Development", "REPORTES"), file.path("GrandVision"))
+  rSharePoint <- ifelse(Modo == 1, file.path("Documents", "Development", "REPORTES"), file.path("Luxottica Group S.p.A"))
   
   #Path de Tablas
-  rTablas <- file.path(rUser, rSharePoint, "MX1-MV Supply Chain - Documentos", "Reportes", "FBEM", "000_FMT_GLOBAL", "01_Tablas")
+  rTablas <- file.path(rUser, rSharePoint, "PVC_EL_MX - Documentos", "Reportes", "FBEM", "000_FMT_GLOBAL", "01_Tablas")
   
   #Path de Reportes
-  rReportes <- file.path(rUser, rSharePoint, "MX1-MV Supply Chain - Documentos", "Reportes", "FBEM", "000_FMT_GLOBAL", "02_Reportes")
+  rReportes <- file.path(rUser, rSharePoint, "PVC_EL_MX - Documentos", "Reportes", "FBEM", "000_FMT_GLOBAL", "02_Reportes")
   
   #================ Constantes ================ 
   
