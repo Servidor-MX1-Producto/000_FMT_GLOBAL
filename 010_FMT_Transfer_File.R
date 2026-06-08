@@ -43,7 +43,7 @@ for (i in 1:nrow(tTransferFile)) {
   
   #Eliminar archvio
   
-  #Antes de Copiar el archivo, este se debe eliminar para poder copiarlo
+  #Antes de Copiar el archivo, este se debe eliminar para poder copiarlo en la ruta destino
   if (file.exists(file.path(paste(rDestino,  sep = "")))) {
     
     #Si el archivo existe lo elimina
