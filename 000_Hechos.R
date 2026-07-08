@@ -4,8 +4,9 @@
 #   2.- 
 #   3.- 
 
+suppressWarnings(suppressMessages({
+
 #================ Librerias  ==============
-{
   if (!require("readxl")) install.packages("readxl")
   library("readxl")
   if (!require("dplyr")) install.packages("dplyr")
@@ -24,29 +25,30 @@
   library("stringr")
   if (!require("logger")) install.packages("logger")
   library("logger")
-  
+
   #Zona Horaria
   Sys.setenv(TZ = "Etc/GMT+6")
-}
 
 #============== Funciones ==============
-source("090_Utils/091_Funciones.R")
+  source("090_Utils/091_Funciones.R")
 
 #============== Paths ==============
-source("090_Utils/092_Paths.R")
+  source("090_Utils/092_Paths.R")
 
 #================ Bitacora ================
-source("090_Utils/093_Bitacoras.R")
+  source("090_Utils/093_Bitacoras.R")
 
-#Elementos a mantener en el environment
-vMantener <- c("vMantener")
-vMantener <- c(vMantener, ls())
+  #Elementos a mantener en el environment
+  vMantener <- c("vMantener")
+  vMantener <- c(vMantener, ls())
 
 #================ Ejecucion ===================
-#Borra Samba
-source("010_Proceso/011_Borra_Samba.R")
+  #Borra Samba
+  source("010_Proceso/011_Borra_Samba.R")
 
-#TransferFile
-source("010_Proceso/012_Transfer_File.R")
+  #TransferFile
+  source("010_Proceso/012_Transfer_File.R")
 
-rm(list = ls())
+  rm(list = ls())
+
+}))
